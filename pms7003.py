@@ -51,7 +51,12 @@ import serial
 import time
 import os
 
+import sys
+
 physicalPort = '/dev/ttyUSB0'
+
+if len(sys.argv) > 1:
+        physicalPort = sys.argv[1]
 
 serialPort = serial.Serial(port=physicalPort, baudrate=9600, bytesize=serial.EIGHTBITS, parity=serial.PARITY_NONE,
                            stopbits=serial.STOPBITS_ONE, timeout=.7)
